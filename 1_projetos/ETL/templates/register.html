@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" shrink-to-fit=no">
+    <title>Registra</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css') }}" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul id="messages" class="list-unstyled">
+                {% for message in messages %}
+                    <li class="alert alert-success">{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    <h1>Registrar</h1>
+    <form class="form-signin" class="form-signin" method="POST" action="{{ url_for('register') }}">
+        <p></p><label>Nome do Usuário:</label><input class="form-control" type="text" name="usuario" required></p>
+        <p></p><label>Senha:</label><input class="form-control" type="password" name="senha" required></p>
+        <p></p><label>E-mail:</label><input class="form-control" type="email" name="email" required></p>
+        <div class="msg">{{ msg }}</div>
+        <p><button class="btn btn-primary" type="submit">Enviar</button></p>         
+    </form>
+ </div>
+</body>
+</html>
